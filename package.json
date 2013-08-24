@@ -1,12 +1,12 @@
 {
 	"name": "grunt",
-		"version": "0.0.0",
+		"version": "0.0.1",
 		"description": "hello grunt",
-		"main": "Gruntfile.js",
+		"main": "Gruntfile.coffee",
 		"scripts": {
 			"test": "echo \"Error: no test specified\" && exit 1"
 		},
-		"repository": "",
+		"repository": "https://github.com/toyamarinyon/boilerplate",
 		"author": "toyamarinyon",
 		"license": "BSD",
 		"devDependencies": {
@@ -14,6 +14,6 @@
 			"grunt-contrib-watch": "*",
 			"grunt-contrib-compass": "*",
 			"grunt-slim": "*",
-			"grunt-contrib-connect": "*"
+			"grunt-contrib-coffee": "*"
 		}
 }

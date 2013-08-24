@@ -3,45 +3,43 @@ module.exports = (grunt) ->
     watch:
       options:
         livereload:true
-      html:
-        files:
-          '*.html'
-      css:
-        files:
-          '*.css'
       slim:
         files:
           'views/*.slim'
+      css:
+        files:
+          'assets/css/*.css'
       compass:
         files:
-          '*.sass'
+          'assets/sass/*.sass'
         tasks:
           'compass'
-    slim:
-      dest:
-        files: [
-          expand: true
-          src:'*.slim'
-          dest:'.'
-          ext:'.html'
-        ]
+      js:
+        files:
+          'assets/js/*.js'
+      coffee:
+        files:
+          'assets/coffee/*.coffee'
+        tasks:
+          'coffee'
     compass:
       dest:
         options:
           config:'./config.rb'
-    connect:
-      livereload:
+          bundleExec: true
+    coffee:
+      compile:
         options:
-          port:9001
+          join: true
+        files:
+          'assets/js/application.js': ['assets/coffee/require_config.coffee', 'assets/coffee/application.coffee']
 
-  grunt.loadNpmTasks 'grunt-contrib-connect'
-  grunt.loadNpmTasks 'grunt-slim'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
   grunt.registerTask 'default', [
-    'connect',
     'compass',
-    'slim',
+    'coffee',
     'watch'
   ]
